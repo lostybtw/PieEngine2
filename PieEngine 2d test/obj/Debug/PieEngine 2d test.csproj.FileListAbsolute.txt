@@ -1,0 +1,7 @@
+D:\PieEngine 2d test\bin\Debug\PieEngine 2d test.exe.config
+D:\PieEngine 2d test\bin\Debug\PieEngine 2d test.exe
+D:\PieEngine 2d test\bin\Debug\PieEngine 2d test.pdb
+D:\PieEngine 2d test\obj\Debug\PieEngine 2d test.csprojAssemblyReference.cache
+D:\PieEngine 2d test\obj\Debug\PieEngine 2d test.csproj.CoreCompileInputs.cache
+D:\PieEngine 2d test\obj\Debug\PieEngine 2d test.exe
+D:\PieEngine 2d test\obj\Debug\PieEngine 2d test.pdb
