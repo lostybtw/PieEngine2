@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using PieEngine_2d_test;
+using System.Drawing;
+using System.Threading;
 
 namespace PieEngine_2d_test.PieEngine2dtest
 {
@@ -14,19 +16,24 @@ namespace PieEngine_2d_test.PieEngine2dtest
 
         }
 
-        public override void OnDraw()
-        {
-           
-        }
-
         public override void OnLoad()
         {
-            Console.WriteLine("Bitch , It works");
+            Bg = Color.BlueViolet;
+
+            Shape player = new Shape(new Vector2(10, 10), new Vector2(10, 10),"test");
         }
+
+        public override void OnDraw()
+        {
+            
+        }
+
+
         int frame = 0;
         public override void OnUpdate()
         {
-            if (frame % 10 == 0) { Console.WriteLine($"FrameCount: {frame}"); }
+           
+            if (frame % delay == 0) { Console.WriteLine($"FrameCount: {frame}"); }
             frame++;
         }
     }

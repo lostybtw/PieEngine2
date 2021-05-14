@@ -48,6 +48,7 @@
     <Compile Include="PieEngine2dtest\PieEngine2d.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="PieEngine2dtest\Shape.cs" />
     <Compile Include="PieEngine2dtest\testGame.cs" />
     <Compile Include="PieEngine2dtest\Vector2.cs" />
     <Compile Include="Program.cs" />

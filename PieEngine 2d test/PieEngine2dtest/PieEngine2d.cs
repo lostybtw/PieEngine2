@@ -24,6 +24,12 @@ namespace PieEngine_2d_test.PieEngine2dtest
         private Canvas Window = null;
         private Thread GameLoopThread = null;
 
+
+        private static List<Shape> Allshapes = new List<Shape>();
+        public Color Bg = Color.White;
+        public int delay = 50;
+
+
         public PieEngine2d(Vector2 screensize , string title)
         {
             this.screensize = screensize;
@@ -39,6 +45,16 @@ namespace PieEngine_2d_test.PieEngine2dtest
             GameLoopThread.Start();
 
             Application.Run(Window);
+        }
+
+        public static void RegisterShape(Shape shape)
+        {
+            Allshapes.Add(shape);
+        }
+
+        public static void UnRegisterShape(Shape shape)
+        {
+            Allshapes.Remove(shape);
         }
 
         void GameLoop()
@@ -65,11 +81,17 @@ namespace PieEngine_2d_test.PieEngine2dtest
         private void Renderer(object sender, PaintEventArgs e)
         {
             Graphics g = e.Graphics;
-            g.Clear(Color.Aqua);
+            g.Clear(Bg);
+
+            foreach(Shape shape in Allshapes)
+            {
+                g.FillRectangle(new SolidBrush(Color.Red) , shape.pos.x,shape.pos.y,shape.scale.x,shape.scale.y);
+            }
         }
 
         public abstract void OnLoad();
         public abstract void OnUpdate();
         public abstract void OnDraw();
+
     }
 }
