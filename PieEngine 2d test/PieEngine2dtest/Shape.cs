@@ -19,11 +19,13 @@ namespace PieEngine_2d_test.PieEngine2dtest
             this.scale = scale;
             this.tag = tag;
 
+            Log.INFO($"[Shape] ({tag})  has been registered");
             PieEngine2d.RegisterShape(this);
         }
 
         public void DestroySelf()
         {
+            Log.INFO($"[Shape] ({tag})  has been destroyed");
             PieEngine2d.UnRegisterShape(this);
         }
     }

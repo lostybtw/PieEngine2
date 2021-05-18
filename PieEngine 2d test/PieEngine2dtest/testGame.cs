@@ -10,7 +10,8 @@ using System.Threading;
 namespace PieEngine_2d_test.PieEngine2dtest
 {
     class testGame : PieEngine2d
-    {
+    { 
+        Shape player;
         public testGame() : base(new Vector2(615,515), "Pie1")
         {
 
@@ -20,7 +21,7 @@ namespace PieEngine_2d_test.PieEngine2dtest
         {
             Bg = Color.BlueViolet;
 
-            Shape player = new Shape(new Vector2(10, 10), new Vector2(10, 10),"test");
+            player = new Shape(new Vector2(10, 10), new Vector2(10, 10),"test");
         }
 
         public override void OnDraw()
@@ -30,11 +31,19 @@ namespace PieEngine_2d_test.PieEngine2dtest
 
 
         int frame = 0;
+        float x = 1;
+        float y = 1;
         public override void OnUpdate()
         {
            
-            if (frame % delay == 0) { Console.WriteLine($"FrameCount: {frame}"); }
-            frame++;
+            if (frame % delay == 0) { frame++; }
+            
+
+            player.pos.x += x;
+            player.pos.y += y;
+
+            player.scale.x += x;
+            player.scale.y += y;
         }
     }
 }

@@ -27,11 +27,12 @@ namespace PieEngine_2d_test.PieEngine2dtest
 
         private static List<Shape> Allshapes = new List<Shape>();
         public Color Bg = Color.White;
-        public int delay = 50;
+        public int delay = 1;
 
 
         public PieEngine2d(Vector2 screensize , string title)
         {
+            Log.INFO("Game is starting"); 
             this.screensize = screensize;
             this.title = title;
 
@@ -72,7 +73,8 @@ namespace PieEngine_2d_test.PieEngine2dtest
 
                 catch
                 {
-                    Console.WriteLine("Game is Loading...");
+                    Log.Error("Window not found , waiting " + ""); 
+
                 }
 
             }
