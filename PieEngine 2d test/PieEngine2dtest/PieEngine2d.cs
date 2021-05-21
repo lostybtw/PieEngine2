@@ -73,7 +73,25 @@ namespace PieEngine_2d_test.PieEngine2dtest
 
                 catch
                 {
-                    Log.Error("Window not found , waiting " + ""); 
+                    Log.Error("Game not found"); 
+
+                    Thread.Sleep(1);
+                    
+                try
+                {
+                    OnDraw();
+                    Window.BeginInvoke((MethodInvoker)delegate { Window.Refresh(); });
+                    OnUpdate();
+                    Thread.Sleep(1);
+                }
+
+                catch
+                {
+                    Environment.Exit(0);
+
+                }
+
+
 
                 }
 

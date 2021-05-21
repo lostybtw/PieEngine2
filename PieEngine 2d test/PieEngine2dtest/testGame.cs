@@ -31,6 +31,7 @@ namespace PieEngine_2d_test.PieEngine2dtest
 
 
         int frame = 0;
+        int time = 0;
         float x = 1;
         float y = 1;
         public override void OnUpdate()
@@ -38,12 +39,27 @@ namespace PieEngine_2d_test.PieEngine2dtest
            
             if (frame % delay == 0) { frame++; }
             
+            if(player != null)
+            {
+                 player.pos.x += x;
+                 player.pos.y += y;
 
-            player.pos.x += x;
-            player.pos.y += y;
+                 player.scale.x += x;
+                 player.scale.y += y;
+            }
 
-            player.scale.x += x;
-            player.scale.y += y;
+
+            if(time > 400)
+            {
+                if(player != null)
+                {
+                        player.DestroySelf();
+                        player = null;
+                }
+
+            }
+
+            time++;
         }
     }
 }
