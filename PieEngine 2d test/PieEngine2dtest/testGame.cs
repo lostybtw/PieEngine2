@@ -53,8 +53,9 @@ namespace PieEngine_2d_test.PieEngine2dtest
             {
                 if(player != null)
                 {
-                        player.DestroySelf();
-                        player = null;
+                    player.DestroySelf();
+                    player = null;
+                    Environment.Exit(0);
                 }
 
             }

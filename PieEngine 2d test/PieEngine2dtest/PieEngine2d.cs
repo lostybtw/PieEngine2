@@ -30,18 +30,18 @@ namespace PieEngine_2d_test.PieEngine2dtest
         public int delay = 1;
 
 
-        public PieEngine2d(Vector2 screensize , string title)
+        public PieEngine2d(Vector2 screensize, string title)
         {
-            Log.INFO("Game is starting"); 
+            Log.INFO("Game is starting");
             this.screensize = screensize;
             this.title = title;
 
             Window = new Canvas();
-            Window.Size = new Size((int)this.screensize.x , (int)this.screensize.y);
+            Window.Size = new Size((int)this.screensize.x, (int)this.screensize.y);
             Window.Text = this.title;
             Window.Paint += Renderer;
 
-           
+
             GameLoopThread = new Thread(GameLoop);
             GameLoopThread.Start();
 
@@ -73,23 +73,23 @@ namespace PieEngine_2d_test.PieEngine2dtest
 
                 catch
                 {
-                    Log.Error("Game not found"); 
+                    Log.Error("Game not found");
 
                     Thread.Sleep(1);
-                    
-                try
-                {
-                    OnDraw();
-                    Window.BeginInvoke((MethodInvoker)delegate { Window.Refresh(); });
-                    OnUpdate();
-                    Thread.Sleep(1);
-                }
 
-                catch
-                {
-                    Environment.Exit(0);
+                    try
+                    {
+                        OnDraw();
+                        Window.BeginInvoke((MethodInvoker)delegate { Window.Refresh(); });
+                        OnUpdate();
+                        Thread.Sleep(1);
+                    }
 
-                }
+                    catch
+                    {
+                        Environment.Exit(0);
+
+                    }
 
 
 
@@ -103,9 +103,9 @@ namespace PieEngine_2d_test.PieEngine2dtest
             Graphics g = e.Graphics;
             g.Clear(Bg);
 
-            foreach(Shape shape in Allshapes)
+            foreach (Shape shape in Allshapes)
             {
-                g.FillRectangle(new SolidBrush(Color.Red) , shape.pos.x,shape.pos.y,shape.scale.x,shape.scale.y);
+                g.FillRectangle(new SolidBrush(Color.Red), shape.pos.x, shape.pos.y, shape.scale.x, shape.scale.y);
             }
         }
 
