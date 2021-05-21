@@ -16,6 +16,18 @@ namespace PieEngine_2d_test.PieEngine2dtest
         {
             this.DoubleBuffered = true;
         }
+
+        private void InitializeComponent()
+        {
+            this.SuspendLayout();
+            // 
+            // Canvas
+            // 
+            this.ClientSize = new System.Drawing.Size(379, 261);
+            this.Name = "Canvas";
+            this.ResumeLayout(false);
+
+        }
     }
     public abstract class PieEngine2d
     {
@@ -26,22 +38,23 @@ namespace PieEngine_2d_test.PieEngine2dtest
 
 
         private static List<Shape> Allshapes = new List<Shape>();
+        private static List<Sprite> Allsprites = new List<Sprite>();
         public Color Bg = Color.White;
         public int delay = 1;
 
 
-        public PieEngine2d(Vector2 screensize, string title)
+        public PieEngine2d(Vector2 screensize , string title)
         {
-            Log.INFO("Game is starting");
+            Log.INFO("Game is starting"); 
             this.screensize = screensize;
             this.title = title;
 
             Window = new Canvas();
-            Window.Size = new Size((int)this.screensize.x, (int)this.screensize.y);
+            Window.Size = new Size((int)this.screensize.x , (int)this.screensize.y);
             Window.Text = this.title;
             Window.Paint += Renderer;
 
-
+           
             GameLoopThread = new Thread(GameLoop);
             GameLoopThread.Start();
 
@@ -56,6 +69,16 @@ namespace PieEngine_2d_test.PieEngine2dtest
         public static void UnRegisterShape(Shape shape)
         {
             Allshapes.Remove(shape);
+        }
+
+        public static void RegisterSprite(Sprite sprite)
+        {
+            Allsprites.Add(sprite);
+        }
+
+        public static void UnRegisterSprite(Sprite sprite)
+        {
+            Allsprites.Remove(sprite);
         }
 
         void GameLoop()
@@ -73,23 +96,23 @@ namespace PieEngine_2d_test.PieEngine2dtest
 
                 catch
                 {
-                    Log.Error("Game not found");
+                    Log.Error("Game not found"); 
 
                     Thread.Sleep(1);
+                    
+                try
+                {
+                    OnDraw();
+                    Window.BeginInvoke((MethodInvoker)delegate { Window.Refresh(); });
+                    OnUpdate();
+                    Thread.Sleep(1);
+                }
 
-                    try
-                    {
-                        OnDraw();
-                        Window.BeginInvoke((MethodInvoker)delegate { Window.Refresh(); });
-                        OnUpdate();
-                        Thread.Sleep(1);
-                    }
+                catch
+                {
+                    Environment.Exit(0);
 
-                    catch
-                    {
-                        Environment.Exit(0);
-
-                    }
+                }
 
 
 
@@ -103,9 +126,9 @@ namespace PieEngine_2d_test.PieEngine2dtest
             Graphics g = e.Graphics;
             g.Clear(Bg);
 
-            foreach (Shape shape in Allshapes)
+            foreach(Shape shape in Allshapes)
             {
-                g.FillRectangle(new SolidBrush(Color.Red), shape.pos.x, shape.pos.y, shape.scale.x, shape.scale.y);
+                g.FillRectangle(new SolidBrush(Color.Red) , shape.pos.x,shape.pos.y,shape.scale.x,shape.scale.y);
             }
         }
 
