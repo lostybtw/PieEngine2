@@ -130,6 +130,11 @@ namespace PieEngine_2d_test.PieEngine2dtest
             {
                 g.FillRectangle(new SolidBrush(Color.Red) , shape.pos.x,shape.pos.y,shape.scale.x,shape.scale.y);
             }
+
+            foreach(Sprite sprite in Allsprites)
+            {
+                g.DrawImage(sprite.sprite, sprite.pos.x, sprite.pos.y, sprite.scale.x, sprite.scale.y);
+            }
         }
 
         public abstract void OnLoad();

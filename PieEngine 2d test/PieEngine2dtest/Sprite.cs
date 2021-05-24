@@ -13,6 +13,7 @@ namespace PieEngine_2d_test.PieEngine2dtest
         public Vector2 scale = null;
         public string directory = "";
         public string tag = "";
+        public Bitmap sprite = null;
 
 
         public Sprite(Vector2 pos, Vector2 scale, string tag, string directory)
@@ -22,7 +23,8 @@ namespace PieEngine_2d_test.PieEngine2dtest
             this.directory = directory;
             this.tag = tag;
 
-          
+            Image temp = Image.FromFile($"Assets/{directory}");
+            sprite = new Bitmap(temp,(int)this.scale.x, (int)this.scale.y);
 
             Log.INFO($"[Shape] ({tag})  has been registered");
             PieEngine2d.RegisterSprite(this);

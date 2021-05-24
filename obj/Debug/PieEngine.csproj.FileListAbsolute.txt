@@ -1,0 +1,7 @@
+C:\Users\Admin\Source\Repos\PieEngine2dtest\obj\Debug\PieEngine.csprojAssemblyReference.cache
+C:\Users\Admin\Source\Repos\PieEngine2dtest\obj\Debug\PieEngine.csproj.CoreCompileInputs.cache
+C:\Users\Admin\Source\Repos\PieEngine2dtest\bin\Debug\PieEngine.exe.config
+C:\Users\Admin\Source\Repos\PieEngine2dtest\bin\Debug\PieEngine.exe
+C:\Users\Admin\Source\Repos\PieEngine2dtest\bin\Debug\PieEngine.pdb
+C:\Users\Admin\Source\Repos\PieEngine2dtest\obj\Debug\PieEngine.exe
+C:\Users\Admin\Source\Repos\PieEngine2dtest\obj\Debug\PieEngine.pdb
